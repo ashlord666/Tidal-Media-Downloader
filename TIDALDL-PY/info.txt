@@ -1,6 +1,7 @@
+python -m venv venv
+venv\Scripts\activate.bat
 pip install -r requirements.txt
-pip install wheel
-pip install pyinstaller
+pip install wheel pyinstaller
 python setup.py sdist bdist_wheel
 pyinstaller -F tidal_dl/__init__.py
 del exe\tidal-dl.exe
