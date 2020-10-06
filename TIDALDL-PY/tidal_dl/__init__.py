@@ -14,6 +14,7 @@ import prettytable
 import ssl
 import sys
 import getopt
+import traceback
 
 from aigpy.stringHelper import isNull
 from aigpy.pathHelper import mkdirs
@@ -223,6 +224,17 @@ def main():
             changeSettings()
         elif choice == "3":
             setAccessToken()
+        elif choice == "4":
+            #batch processing
+            try:
+                with open('batch.txt') as batchfile:
+                    line = batchfile.readline()
+                    while line and len(line) > 0:
+                        print('\033[1m' + f"Batching {line.strip()}" + '\033[0m')
+                        start(USER, CONF, line.strip())
+                        line = batchfile.readline()
+            except:
+                traceback.print_exc()
         else:
             start(USER, CONF, choice)
 
