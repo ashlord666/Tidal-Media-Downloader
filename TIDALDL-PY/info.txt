@@ -4,6 +4,7 @@ pip install -r requirements.txt
 pip install wheel pyinstaller
 python setup.py sdist bdist_wheel
 pyinstaller -F tidal_dl/__init__.py
+mkdir exe
 del exe\tidal-dl.exe
 move /Y dist\__init__.exe exe\
 ren exe\__init__.exe tidal-dl.exe
