@@ -230,7 +230,7 @@ def main():
                 with open('batch.txt') as batchfile:
                     line = batchfile.readline()
                     while line:
-                        if len(line) > 0:
+                        if len(line.strip()) > 0:
                             print('\033[1m' + f"Batching {line.strip()}" + '\033[0m')
                             start(USER, CONF, line.strip())
                             line = batchfile.readline()
